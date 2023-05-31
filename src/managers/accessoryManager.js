@@ -1,3 +1,3 @@
-const Cube = require('../models/Accessory');
+const Accessory = require('../models/Accessory');
 
-exports.create = (accessoryData) => Accessory.create()
+exports.create = (accessoryData) => Accessory.create(accessoryData)
