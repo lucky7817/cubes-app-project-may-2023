@@ -10,9 +10,7 @@ router.post('/create', async (req, res) => {
 
     await accessoryManager.create({ name, description, imageUrl });
 
-    //TODO: add accessory data to DB
-
     res.redirect('/')
-})
+});
 
 module.exports = router;
