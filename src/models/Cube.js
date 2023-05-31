@@ -5,6 +5,11 @@ const cubeSchema =  new mongoose.Schema({
     description: String,
     imageUrl: String,
     difficultyLevel: Number,
+    // We put accessoty in a cube, if we want to put more then one accessory we use []:
+    accessories: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Accessory'
+    }]
 });
 
 const Cube = mongoose.model('Cube', cubeSchema);
