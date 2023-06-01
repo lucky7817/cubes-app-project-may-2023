@@ -17,13 +17,16 @@ exports.getAll = async (search, from, to) => {
     return result;
 }
 
+// First method:
 exports.getOne = (cubeId) => Cube.findById(cubeId);
+//Second method:
+exports.getOneWithAccessories = (cubeId) => this.getOne(cubeId).populate('accessories');
 
 // Here we use - new ..... to create
 exports.create = (cubeData) => {
     const cube = new Cube(cubeData);
     
-    return cube.save();;
+    return cube.save();
 };
 
 exports.attachAccessory = async (cubeId, accessoryId) => {
