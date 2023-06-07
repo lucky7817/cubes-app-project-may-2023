@@ -2,13 +2,13 @@ const Cube = require('../models/Cube');
 
 exports.getAll = async (search, from, to) => {
     let result = await Cube.find().lean();
-// TODO: use mongoose to filter in the db
+    // TODO: use mongoose to filter in the db
     if (search) {
         result = result.filter(cube => cube.name.toLowerCase().includes(search.toLowerCase()));
     }
 
     if (from) {
-        result = result.filter(cube =>cube.difficultyLevel >= Number(from));
+        result = result.filter(cube => cube.difficultyLevel >= Number(from));
     }
 
     if (to) {
@@ -25,9 +25,13 @@ exports.getOneWithAccessories = (cubeId) => this.getOne(cubeId).populate('access
 // Here we use - new ..... to create
 exports.create = (cubeData) => {
     const cube = new Cube(cubeData);
-    
+
     return cube.save();
 };
+
+exports.update = (cubeId, cubeData) => Cube.findByIdAndUpdate(cubeId, cubeData);
+
+exports.delete = (cubeId) => Cube.findByIdAndDelete(cubeId);
 
 exports.attachAccessory = async (cubeId, accessoryId) => {
 
