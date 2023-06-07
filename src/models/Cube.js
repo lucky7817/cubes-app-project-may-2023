@@ -8,8 +8,12 @@ const cubeSchema =  new mongoose.Schema({
     // We put accessoty in a cube, if we want to put more then one accessory we use []:
     accessories: [{
         type: mongoose.Types.ObjectId,
-        ref: 'Accessory'
-    }]
+        ref: 'Accessory',
+    }],
+    owner: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+    }
 });
 
 const Cube = mongoose.model('Cube', cubeSchema);

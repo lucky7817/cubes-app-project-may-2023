@@ -1,1 +1,1 @@
-exports.SECRET = 'mainverybigsecret';
+exports.SECRET = 'mineverybigsecret';
